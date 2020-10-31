@@ -1,0 +1,16 @@
+Options = -Wall -Wpedantic
+
+SrcDir = src
+BinDir = bin
+LibDir = libs
+
+DEPS = $(LibDir)\file_manager.h $(LibDir)\dynamic_array.h $(SrcDir)\label_array.h $(SrcDir)\assembler_specification.h $(SrcDir)\cpu_specification.h $(SrcDir)\cpu_commands.h
+LIBS = $(LibDir)\file_manager.a  
+
+EXE = asm+.exe
+
+$(BinDir)\$(EXE): $(DEPS) $(LIBS) $(BinDir)\assembler.o
+	g++ -o $(BinDir)\$(EXE) $(BinDir)\assembler.o -L. $(LIBS)
+	
+$(BinDir)\assembler.o: $(SrcDir)\assembler.cpp $(DEPS)
+	g++ -o $(BinDir)\assembler.o -c $(SrcDir)\assembler.cpp $(Options)

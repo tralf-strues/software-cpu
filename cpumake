@@ -1,0 +1,19 @@
+Options = -Wall -Wpedantic -DCPU_DEBUG_MODE -DSTACK_DEBUG_MODE -O3 -lmingw32 -lSDL2main -lSDL2
+
+SrcDir = src
+BinDir = bin
+LibDir = libs
+
+DEPS = $(LibDir)\file_manager.h $(LibDir)\log_generator.h $(LibDir)\stack.h $(LibDir)\dynamic_array.h $(SrcDir)\cpu_specification.h $(SrcDir)\cpu_commands.h $(SrcDir)\display.h
+LIBS = $(LibDir)\file_manager.a $(LibDir)\log_generator.a $(LibDir)\stack.a
+
+EXE = scpu.exe
+
+$(BinDir)\$(EXE): $(LIBS) $(BinDir)\cpu.o $(BinDir)\display.o
+	g++ -o $(BinDir)\$(EXE) $(BinDir)\cpu.o $(BinDir)\display.o -L. $(LIBS) $(Options)
+	
+$(BinDir)\cpu.o: $(SrcDir)\cpu.cpp $(DEPS) 
+	g++ -o $(BinDir)\cpu.o -c $(SrcDir)\cpu.cpp $(Options)
+
+$(BinDir)\display.o: $(SrcDir)\display.cpp $(DEPS)
+	g++ -o $(BinDir)\display.o -c $(SrcDir)\display.cpp $(Options)
