@@ -8,42 +8,44 @@ This is a simple "CPU emulator", which consists of the following components:
 These are all the commands that are supported:
 
 *Input*
-1. in
-2. out
+* in
+* out
 
 *Arithmetic*
-3. add
-4. sub
-5. mul
-6. div
+
+* add
+* sub
+* mul
+* div
 
 *Math*
-7. pow
-8. sqrt
-9. sin
-10. cos
-11. abs
-12. flr
+
+* pow
+* sqrt
+* sin
+* cos
+* abs
+* flr
 
 *Stack*
-13. push
-14. pop
+* push
+* pop
 
 *Control flow*
-15. call
-16. ret
-17. jmp
-18. jae
-19. ja
-20. jb
-21. jbe
-22. je
-23. jne
-24. hlt
+* call
+* ret
+* jmp
+* jae
+* ja
+* jb
+* jbe
+* je
+* jne
+* hlt
 
 *Graphics*
-25. upd
-26. clr
+* upd
+* clr
 
 ### Example 1 - factorial
 ```Lisp
@@ -206,6 +208,6 @@ square:
 
 # Libraries used
 1. [SDL2](https://www.libsdl.org/)
-2. (my) file_manager
-3. (my) stack
-4. (my) log_generator
+2. (my) [file_manager](https://github.com/tralf-strues/file_manager)
+3. (my) [stack](https://github.com/tralf-strues/stack)
+4. (my) [log_generator](https://github.com/tralf-strues/log_generator)
